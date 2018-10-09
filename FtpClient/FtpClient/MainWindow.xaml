@@ -1,0 +1,81 @@
+﻿<Window x:Class="FtpClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FtpClient"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="Black"
+        Title="FTP Client"
+        KeyDown="Window_KeyDown" Height="441.6">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border BorderThickness="0,0,1,0"
+                BorderBrush="White"
+                Margin="5">
+
+            <Grid Width="300">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="IP:"/>
+                <TextBox x:Name="txtboxAddress"
+                         Grid.Column="1"
+                         Text="ftp://"/>
+                <TextBlock Text="Login:"
+                           Grid.Row="1"/>
+                <TextBox x:Name="txtboxLogin"
+                         Grid.Row="1"
+                         Grid.Column="1"/>
+                <TextBlock Text="Password:"
+                           Grid.Row="2"/>
+                <PasswordBox x:Name="txtboxPassword"
+                             Grid.Row="2"
+                             Grid.Column="1"/>
+                <Button x:Name="btn_connect"
+                        Background="DarkOrange"
+                        Content="Connect FTP"
+                        Margin="0,10.2,0,10.6" 
+                        Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        Width="300"
+                        HorizontalAlignment="Left"
+                        Click="btnConnect_Click" />
+                <Button x:Name="download"
+                        Background="DarkSeaGreen" 
+                        Content="Download file" 
+                        Margin="0,85.2,0,-61.2" 
+                        Grid.Row="3" 
+                        Grid.ColumnSpan="2"
+                        Click="download_Click"
+                        />
+                <Button
+                    x:Name="upload"
+                    Background="DarkRed"
+                    Content="Upload file" 
+                    Margin="0,123.2,0,-97.6" 
+                    Grid.Row="3" 
+                    Grid.ColumnSpan="2"
+                    Click="upload_Click"
+                    />
+            </Grid>
+        </Border>
+        <ListBox Grid.Column="1"
+                 Margin="5"
+                 x:Name="listbox"
+                 HorizontalContentAlignment="Stretch"/>
+    </Grid>
+</Window>
